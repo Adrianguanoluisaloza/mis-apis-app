@@ -1,2 +1,3 @@
-{"nombre":"Registro de prueba","descripcion":"smoke","_id":"jUPAB1Ho6FH0H4jV","createdAt":{"$$date":1776102559232},"updatedAt":{"$$date":1776102559232}}
-{"$$deleted":true,"_id":"jUPAB1Ho6FH0H4jV"}
+{"nombre":"Registro de prueba","descripcion":"smoke","_id":"lQtdbYw7rJk7sAW2","createdAt":{"$$date":1776102879837},"updatedAt":{"$$date":1776102879837}}
+{"nombre":"Registro actualizado","descripcion":"smoke-upd","_id":"lQtdbYw7rJk7sAW2","createdAt":{"$$date":1776102879837},"updatedAt":{"$$date":1776102879842}}
+{"$$deleted":true,"_id":"lQtdbYw7rJk7sAW2"}

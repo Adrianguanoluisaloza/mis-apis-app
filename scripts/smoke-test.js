@@ -47,6 +47,19 @@ try {
   const id = createData?.data?._id;
   assert(Boolean(id), "El registro creado debe tener _id");
 
+  const updateRes = await fetch(`${baseUrl}/ejemplo/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ nombre: "Registro actualizado", descripcion: "smoke-upd" }),
+  });
+  assert(updateRes.ok, "PUT /ejemplo/:id debe devolver 200");
+
+  const listRes = await fetch(`${baseUrl}/ejemplo`);
+  assert(listRes.ok, "GET /ejemplo debe devolver 200");
+
   const getRes = await fetch(`${baseUrl}/ejemplo/${id}`);
   assert(getRes.ok, "GET /ejemplo/:id debe devolver 200");
 
@@ -58,7 +71,55 @@ try {
   });
   assert(deleteRes.ok, "DELETE /ejemplo/:id debe devolver 200");
 
-  console.log("Smoke test OK: login + CRUD básico funcionando.");
+  const createDatoRes = await fetch(`${baseUrl}/datos-personales`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      nombres: "Adrian",
+      apellidos: "Guano",
+      email: "adrian@example.com",
+      telefono: "099000111",
+    }),
+  });
+  assert(createDatoRes.status === 201, "POST /datos-personales debe devolver 201");
+
+  const createDatoData = await createDatoRes.json();
+  const datoId = createDatoData?.data?._id;
+  assert(Boolean(datoId), "El dato personal creado debe tener _id");
+
+  const updateDatoRes = await fetch(`${baseUrl}/datos-personales/${datoId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      nombres: "Adrian",
+      apellidos: "Guano L",
+      email: "adrian@example.com",
+      telefono: "098111222",
+    }),
+  });
+  assert(updateDatoRes.ok, "PUT /datos-personales/:id debe devolver 200");
+
+  const getDatoRes = await fetch(`${baseUrl}/datos-personales/${datoId}`);
+  assert(getDatoRes.ok, "GET /datos-personales/:id debe devolver 200");
+
+  const listDatoRes = await fetch(`${baseUrl}/datos-personales`);
+  assert(listDatoRes.ok, "GET /datos-personales debe devolver 200");
+
+  const deleteDatoRes = await fetch(`${baseUrl}/datos-personales/${datoId}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  assert(deleteDatoRes.ok, "DELETE /datos-personales/:id debe devolver 200");
+
+  console.log("Smoke test OK: login + CRUD completo en ejemplo y datos-personales.");
 } catch (error) {
   console.error("Smoke test FAIL:", error.message);
   process.exitCode = 1;

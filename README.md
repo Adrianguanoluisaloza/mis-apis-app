@@ -60,6 +60,14 @@ Base: `http://localhost:3000/api`
 - `PUT /ejemplo/:id` (Bearer Token)
 - `DELETE /ejemplo/:id` (Bearer Token)
 
+### Datos Personales (CRUD)
+
+- `GET /datos-personales`
+- `GET /datos-personales/:id`
+- `POST /datos-personales` (Bearer Token)
+- `PUT /datos-personales/:id` (Bearer Token)
+- `DELETE /datos-personales/:id` (Bearer Token)
+
 ## Pruebas manuales (Thunder Client)
 
 1. `POST /api/auth/login`
@@ -87,5 +95,18 @@ Authorization: Bearer TU_TOKEN
 {
   "nombre": "Juan",
   "descripcion": "Registro inicial"
+}
+```
+
+5. Crear un dato personal:
+
+`POST /api/datos-personales`
+
+```json
+{
+  "nombres": "Adrian",
+  "apellidos": "Guano",
+  "email": "adrian@example.com",
+  "telefono": "099000111"
 }
 ```

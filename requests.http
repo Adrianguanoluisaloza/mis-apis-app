@@ -1,0 +1,43 @@
+### Salud API
+GET http://localhost:3000/api/
+
+### Login (admin seed)
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+### Perfil (reemplaza TOKEN)
+GET http://localhost:3000/api/auth/profile
+Authorization: Bearer TOKEN
+
+### Crear ejemplo
+POST http://localhost:3000/api/ejemplo
+Content-Type: application/json
+Authorization: Bearer TOKEN
+
+{
+  "nombre": "Registro ejemplo",
+  "descripcion": "desde requests.http"
+}
+
+### Listar ejemplos
+GET http://localhost:3000/api/ejemplo
+
+### Crear dato personal
+POST http://localhost:3000/api/datos-personales
+Content-Type: application/json
+Authorization: Bearer TOKEN
+
+{
+  "nombres": "Adrian",
+  "apellidos": "Guano",
+  "email": "adrian@example.com",
+  "telefono": "099000111"
+}
+
+### Listar datos personales
+GET http://localhost:3000/api/datos-personales

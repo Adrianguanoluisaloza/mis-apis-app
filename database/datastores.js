@@ -11,3 +11,9 @@ export const usuariosDb = Datastore.create({
   autoload: true,
   timestampData: true,
 });
+
+export const datosPersonalesDb = Datastore.create({
+  filename: "database/data/datos-personales.db",
+  autoload: true,
+  timestampData: true,
+});
