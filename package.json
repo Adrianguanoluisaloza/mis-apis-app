@@ -1,14 +1,11 @@
 {
-  "name": "mis-apis-app",
+  "name": "mi-primer-backend-adrian",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
-    "smoke": "node scripts/smoke-test.js",
-    "postman:test": "node scripts/run-postman-tests.js",
-    "test": "node scripts/smoke-test.js"
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
@@ -23,7 +20,6 @@
     "nedb-promises": "^6.2.3"
   },
   "devDependencies": {
-    "newman": "^6.2.2",
     "nodemon": "^3.1.14"
   }
 }

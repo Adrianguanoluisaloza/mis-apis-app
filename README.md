@@ -1,12 +1,14 @@
-# mis-apis-app
+# Mi primer backend de Adrián
 
-API backend en Node.js + Express con arquitectura por capas:
+Backend en Node.js + Express hecho por Adrián para practicar una API simple con estructura ordenada.
+
+Incluye:
 
 - `routes`: endpoints
 - `controllers`: lógica HTTP
 - `models`: acceso a base de datos
-- `middlewares`: filtros y seguridad JWT
-- `database`: persistencia y seed de usuario admin
+- `middlewares`: filtros y validación
+- `database`: persistencia local y seed de usuario admin
 
 ## Requisitos
 
@@ -36,27 +38,6 @@ ADMIN_PASSWORD=admin123
 npm run dev
 ```
 
-## Probar funcionamiento rápido
-
-```bash
-npm run smoke
-```
-
-## Pruebas Postman (como pidió el profe)
-
-Se incluye colección + environment en la carpeta `postman/`:
-
-- `postman/mis-apis-app.collection.json`
-- `postman/local.environment.json`
-
-Ejecutar todas las pruebas con Newman:
-
-```bash
-npm run postman:test
-```
-
-También puedes importar ambos archivos en Postman y correr la colección manualmente.
-
 ## Endpoints
 
 Base: `http://localhost:3000/api`
@@ -67,61 +48,18 @@ Base: `http://localhost:3000/api`
 - `POST /auth/login`
 - `GET /auth/profile` (Bearer Token)
 
-### Ejemplo (CRUD)
+### Ejemplo
 
 - `GET /ejemplo`
 - `GET /ejemplo/:id`
-- `POST /ejemplo` (Bearer Token)
-- `PUT /ejemplo/:id` (Bearer Token)
-- `DELETE /ejemplo/:id` (Bearer Token)
+- `POST /ejemplo`
+- `PUT /ejemplo/:id`
+- `DELETE /ejemplo/:id`
 
-### Datos Personales (CRUD)
+### Datos Personales
 
 - `GET /datos-personales`
 - `GET /datos-personales/:id`
-- `POST /datos-personales` (Bearer Token)
-- `PUT /datos-personales/:id` (Bearer Token)
-- `DELETE /datos-personales/:id` (Bearer Token)
-
-## Pruebas manuales (Thunder Client)
-
-1. `POST /api/auth/login`
-Body:
-
-```json
-{
-  "username": "admin",
-  "password": "admin123"
-}
-```
-
-2. Copiar `token` de la respuesta.
-3. En requests protegidas, agregar header:
-
-```text
-Authorization: Bearer TU_TOKEN
-```
-
-4. Crear un registro:
-
-`POST /api/ejemplo`
-
-```json
-{
-  "nombre": "Juan",
-  "descripcion": "Registro inicial"
-}
-```
-
-5. Crear un dato personal:
-
-`POST /api/datos-personales`
-
-```json
-{
-  "nombres": "Adrian",
-  "apellidos": "Guano",
-  "email": "adrian@example.com",
-  "telefono": "099000111"
-}
-```
+- `POST /datos-personales`
+- `PUT /datos-personales/:id`
+- `DELETE /datos-personales/:id`
