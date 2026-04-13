@@ -2,6 +2,11 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import generalRouter from "../routes/index.routes.js";
+import { seedDefaultAdmin } from "../database/seed.js";
+import {
+  errorHandler,
+  notFoundHandler,
+} from "../middlewares/error.middleware.js";
 
 dotenv.config();
 
@@ -23,10 +28,14 @@ export default class Server {
 
   routes() {
     this.app.use(this.apiPath, generalRouter);
+    this.app.use(notFoundHandler);
+    this.app.use(errorHandler);
   }
 
-  listen() {
-    this.app.listen(this.port, () => {
+  async listen() {
+    await seedDefaultAdmin();
+
+    return this.app.listen(this.port, () => {
       console.log(`Servidor corriendo en el puerto ${this.port}`);
     });
   }

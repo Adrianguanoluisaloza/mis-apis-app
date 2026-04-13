@@ -1,30 +1,19 @@
 import { Router } from "express";
+import {
+  createEjemplo,
+  deleteEjemplo,
+  getEjemploById,
+  getEjemplos,
+  updateEjemplo,
+} from "../controllers/ejemplo.controller.js";
+import { validateJwt } from "../middlewares/auth-jwt.middleware.js";
 
 const ejemploRouter = Router();
 
-ejemploRouter.get("/", (req, res) => {
-  res.json({ mensaje: "GET ejemplo API" });
-});
-
-ejemploRouter.get("/:id", (req, res) => {
-  const { id } = req.params;
-  res.json({ mensaje: "GET ejemplo por id", id });
-});
-
-ejemploRouter.post("/", (req, res) => {
-  const { body } = req;
-  res.json({ mensaje: "POST ejemplo", body });
-});
-
-ejemploRouter.put("/:id", (req, res) => {
-  const { id } = req.params;
-  const { body } = req;
-  res.json({ mensaje: "PUT ejemplo", id, body });
-});
-
-ejemploRouter.delete("/:id", (req, res) => {
-  const { id } = req.params;
-  res.json({ mensaje: "DELETE ejemplo", id });
-});
+ejemploRouter.get("/", getEjemplos);
+ejemploRouter.get("/:id", getEjemploById);
+ejemploRouter.post("/", validateJwt, createEjemplo);
+ejemploRouter.put("/:id", validateJwt, updateEjemplo);
+ejemploRouter.delete("/:id", validateJwt, deleteEjemplo);
 
 export default ejemploRouter;
