@@ -1,5 +1,7 @@
 # Mi primer backend de Adrián
 
+Estado: terminado.
+
 Backend en Node.js + Express hecho por Adrián para practicar una API simple con estructura ordenada.
 
 Incluye:

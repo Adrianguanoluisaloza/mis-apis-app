@@ -35,6 +35,7 @@ export default class Server {
   async listen() {
     await seedDefaultAdmin();
 
+    // Ajuste final: backend listo para pruebas manuales.
     return this.app.listen(this.port, () => {
       console.log(`Servidor corriendo en el puerto ${this.port}`);
     });
