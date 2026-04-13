@@ -42,6 +42,21 @@ npm run dev
 npm run smoke
 ```
 
+## Pruebas Postman (como pidió el profe)
+
+Se incluye colección + environment en la carpeta `postman/`:
+
+- `postman/mis-apis-app.collection.json`
+- `postman/local.environment.json`
+
+Ejecutar todas las pruebas con Newman:
+
+```bash
+npm run postman:test
+```
+
+También puedes importar ambos archivos en Postman y correr la colección manualmente.
+
 ## Endpoints
 
 Base: `http://localhost:3000/api`

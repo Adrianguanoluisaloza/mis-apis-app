@@ -1,3 +1,3 @@
-{"nombre":"Registro de prueba","descripcion":"smoke","_id":"lQtdbYw7rJk7sAW2","createdAt":{"$$date":1776102879837},"updatedAt":{"$$date":1776102879837}}
-{"nombre":"Registro actualizado","descripcion":"smoke-upd","_id":"lQtdbYw7rJk7sAW2","createdAt":{"$$date":1776102879837},"updatedAt":{"$$date":1776102879842}}
-{"$$deleted":true,"_id":"lQtdbYw7rJk7sAW2"}
+{"nombre":"Registro Postman","descripcion":"Creado con Newman","_id":"rEoK9NiXwu3yPvf0","createdAt":{"$$date":1776103088784},"updatedAt":{"$$date":1776103088784}}
+{"nombre":"Registro Postman Actualizado","descripcion":"Update Newman","_id":"rEoK9NiXwu3yPvf0","createdAt":{"$$date":1776103088784},"updatedAt":{"$$date":1776103088902}}
+{"$$deleted":true,"_id":"rEoK9NiXwu3yPvf0"}
